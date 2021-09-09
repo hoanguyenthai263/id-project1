@@ -1,0 +1,601 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #fbfefd;
+  height: 100vh;
+  width: calc(100vw * 6);
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrollTop {
+  text-decoration: none;
+  position: fixed;
+  z-index: 700;
+  bottom: 3vh;
+  right: 3vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #069c54;
+  border-radius: 3px;
+  width: 40px;
+  height: 40px;
+  visibility: hidden;
+  transform: all 5s ease;
+}
+
+.scrollTop.active {
+  visibility: visible;
+}
+
+.scrollTop:hover {
+  background: #048654;
+}
+
+.scrollTop i {
+  font-size: 36px;
+  text-decoration: none;
+  color: #fbfefd;
+}
+
+.sidebar {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100vh;
+  width: 120px;
+  background: #393939;
+  padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.5s ease;
+  z-index: 69;
+}
+
+.sidebar.active {
+  width: 300px;
+}
+
+.logo-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+  color: #fbfefd;
+}
+
+.logo {
+  font-size: 54px;
+  font-weight: 800;
+  visibility: hidden;
+  color: #069c54;
+  cursor: pointer;
+}
+
+.sidebar.active .logo {
+  visibility: visible;
+}
+
+#logo {
+  font-size: 54px;
+  cursor: pointer;
+  position: relative;
+  left: -54px;
+}
+
+.sidebar.active #logo {
+  left: 0;
+}
+
+.sidebar-content {
+  display: flex;
+  height: 90%;
+  align-items: center;
+}
+
+.sidebar ul {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
+  width: 100%;
+}
+
+.sidebar ul li {
+  list-style: none;
+  margin: 16px 0;
+  position: relative;
+}
+
+.sidebar ul li .tooltip {
+  top: -8px;
+  background: #069c54;
+  color: #393939;
+  border-radius: 12px;
+  padding: 8px;
+  font-size: 24px;
+  font-weight: 300;
+  position: absolute;
+  transform: translateY(-100% + 8px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: 0s;
+  visibility: hidden;
+  left: 54px;
+}
+
+.sidebar ul li:hover .tooltip {
+  transition: all 0.5s ease;
+  visibility: visible;
+}
+
+.sidebar.active ul li:hover .tooltip {
+  visibility: hidden;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: #fbfefd;
+  transition: all 0.5s ease;
+  padding-left: 15px;
+}
+
+.sidebar ul li a:hover {
+  color: #069c54;
+}
+
+.sidebar ul li a i {
+  font-size: 24px;
+  text-align: center;
+}
+
+.sidebar ul li a span {
+  font-size: 24px;
+  font-weight: 500;
+  visibility: hidden;
+}
+
+.sidebar.active ul li a span {
+  margin-left: 24px;
+  visibility: visible;
+}
+
+.home,
+.about,
+.service,
+.menu,
+.app,
+.contact {
+  padding-left: 120px;
+  transition: all 0.5s ease;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.home.active,
+.about.active,
+.service.active,
+.menu.active,
+.app.active,
+.contact.active {
+  padding-left: 300px;
+}
+
+.home-container,
+.about-container,
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 80%;
+  height: 80%;
+}
+
+.service-container,
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  height: 80%;
+  flex-direction: column;
+}
+
+.contact-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 80%;
+  height: 80%;
+  flex-direction: column;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.service-content,
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-title {
+  color: #069c54;
+  font-size: 54px;
+  font-weight: 800;
+}
+
+.about-title,
+.service-title,
+.menu-title,
+.app-title,
+.contact-title {
+  color: #069c54;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.contact-social-title {
+  color: #069c54;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.home-subtitle {
+  font-weight: 600;
+  font-size: 24px;
+  margin: 16px 0;
+  color: #393939;
+}
+
+.about-subtitle,
+.service-subtitle,
+.menu-subtitle,
+.app-subtitle,
+.contact-subtitle {
+  font-weight: 600;
+  font-size: 36px;
+  margin: 16px 0;
+  color: #393939;
+}
+
+.contact-services-title,
+.contact-information-title,
+.contact-address-title {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #393939;
+}
+
+.contact-subscription-title {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 4px;
+  color: #069c54;
+}
+
+.home-button,
+.about-button {
+  text-decoration: none;
+  color: #fbfefd;
+  background: #069c54;
+  width: fit-content;
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+
+.contact-button {
+  text-decoration: none;
+  color: #fbfefd;
+  background: #069c54;
+  width: fit-content;
+  padding: 16px 16px;
+  border-radius: 12px;
+}
+
+.contact-mail-button {
+  text-decoration: none;
+  color: #fbfefd;
+  padding: 0 16px;
+}
+
+.about-description,
+.app-description,
+.contact-social-description,
+.contact-services-description,
+.contact-information-description {
+  color: #707070;
+  margin-bottom: 16px;
+}
+
+.contact-subscription-description {
+  color: #707070;
+  margin-bottom: 16px;
+}
+
+.home-button:hover,
+.about-button:hover,
+.contact-button:hover {
+  background: #048654;
+}
+
+.home-image {
+  width: 60%;
+}
+
+.about-image,
+.app-image {
+  width: 30%;
+}
+
+.home-image img {
+  width: 100%;
+  object-fit: fill;
+}
+
+.about-image img,
+.app-image img {
+  width: 100%;
+  object-fit: fill;
+  border-radius: 12px;
+}
+
+.service-list,
+.menu-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 90%;
+  margin: 16px 0;
+}
+
+.service-item1,
+.service-item2,
+.service-item3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 30%;
+  margin: 0 16px;
+}
+
+.menu-item1,
+.menu-item2,
+.menu-item3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 40%;
+  margin: 0 16px;
+  padding-top: 4px;
+  box-shadow: 0 2px 4px rgb(3 74 40 / 15%);
+}
+
+.menu-item1 img,
+.menu-item2 img,
+.menu-item3 img {
+  transition: transform 2s;
+  margin-bottom: 16px;
+}
+
+.menu-item1:hover img,
+.menu-item2:hover img,
+.menu-item3:hover img {
+  transform: scale(1.2);
+}
+
+.service-item1 img,
+.service-item2 img,
+.service-item3 img {
+  width: 64px;
+  height: 64px;
+  object-fit: fill;
+  filter: invert(41%) sepia(64%) saturate(7458%) hue-rotate(144deg)
+    brightness(104%) contrast(95%);
+}
+
+.service-item1-title,
+.service-item2-title,
+.service-item3-title {
+  color: #393939;
+  margin: 16px 0;
+}
+
+.menu-item1-title,
+.menu-item2-title,
+.menu-item3-title {
+  color: #393939;
+  margin: 4px 0;
+}
+
+.service-item1-description,
+.service-item2-description,
+.service-item3-description,
+.menu-item1-description,
+.menu-item2-description,
+.menu-item3-description {
+  text-align: center;
+  color: #707070;
+}
+
+.menu-item1-content,
+.menu-item2-content,
+.menu-item3-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.menu-price {
+  color: #393939;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 4px 0;
+}
+
+.menu-button {
+  text-decoration: none;
+  color: #fbfefd;
+  background: #069c54;
+  border-radius: 3px;
+  padding: 10px 13px;
+}
+
+.menu-button:hover {
+  background: #048654;
+}
+
+.menu-cart {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.app-download {
+  display: flex;
+  justify-content: flex-start;
+  width: 80%;
+  margin-top: 16px;
+}
+
+.app-download img {
+  width: 120px;
+  margin-right: 16px;
+}
+
+.contact-now {
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 30%;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 30%;
+}
+
+.contact-social,
+.contact-services,
+.contact-information,
+.contact-address {
+  display: flex;
+  flex-direction: column;
+  margin: 0 36px;
+}
+
+.contact-subscription {
+  display: flex;
+  flex-direction: column;
+  margin: 0 36px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+}
+
+.contact-social-icon {
+  display: flex;
+  margin-top: 16px;
+}
+
+.contact-social-icon i {
+  font-size: 24px;
+  margin-right: 16px;
+  color: #707070;
+}
+
+.contact-address-description {
+  color: #707070;
+  margin-bottom: 4px;
+}
+
+.contact-services-description:hover,
+.contact-information-description:hover {
+  color: #069c54;
+  cursor: pointer;
+}
+
+.contact-mail {
+  border: 1px solid #707070;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  border-radius: 12px 0 0 12px;
+  height: 50px;
+}
+
+.contact-mail-submit {
+  border: 1px solid #707070;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  border-radius: 0 12px 12px 0;
+  height: 50px;
+  background: #069c54;
+}
+
+.contact-mail-submit:hover {
+  background: #048654;
+}
+
+.contact-subscribe {
+  border: none;
+  padding: 8px 0;
+  width: 180px;
+  color: #393939;
+  font-size: 16px;
+}
+
+.contact-subscribe:focus {
+  outline: none;
+}
+
+.contact-subscription-input {
+  display: flex;
+}
